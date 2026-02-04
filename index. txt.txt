@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecuaciones Diferenciales - Teoría y Quizzes</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; background: #f9f9f9; }
+    h1, h2, h3 { color: #003366; }
+    .section { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .quiz { margin-top: 15px; }
+    .quiz button { margin-top: 10px; padding: 5px 10px; background: #003366; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .quiz button:hover { background: #0055aa; }
+    .result { margin-top: 10px; font-weight: bold; }
+    footer { margin-top: 30px; font-size: 0.9em; color: #555; }
+  </style>
+</head>
+<body>
+  <h1>Ecuaciones Diferenciales</h1>
+  <p>Guía de estudio con teoría, ejercicios resueltos y quizzes de opción múltiple para alumnos de Ingeniería Mecatrónica, Nanotecnología y Sistemas Computacionales.</p>
+
+  <!-- Unidad 1.1 -->
+  <div class="section">
+    <h2>1.1 Teoría preliminar</h2>
+    <div class="quiz">
+      <h3>Quiz Unidad 1.1</h3>
+      <p>1. ¿Qué es una ecuación diferencial?</p>
+      <label><input type="radio" name="q1_1" value="a"> Una relación entre una función y sus derivadas.</label><br>
+      <label><input type="radio" name="q1_1" value="b"> Una ecuación algebraica sin derivadas.</label><br>
+      <label><input type="radio" name="q1_1" value="c"> Una integral definida.</label><br>
+
+      <p>2. ¿Qué establece el teorema de existencia y unicidad?</p>
+      <label><input type="radio" name="q1_2" value="a"> Que siempre existen infinitas soluciones.</label><br>
+      <label><input type="radio" name="q1_2" value="b"> Que bajo ciertas condiciones existe una única solución.</label><br>
+      <label><input type="radio" name="q1_2" value="c"> Que no existen soluciones.</label><br>
+
+      <button onclick="checkQuiz1()">Verificar</button>
+      <div id="result1" class="result"></div>
+    </div>
+  </div>
+
+  <!-- Unidad 1.2 -->
+  <div class="section">
+    <h2>1.2 Ecuaciones diferenciales ordinarias</h2>
+    <div class="quiz">
+      <h3>Quiz Unidad 1.2</h3>
+      <p>1. ¿Qué método se usa para resolver ecuaciones separables?</p>
+      <label><input type="radio" name="q2_1" value="a"> Método de separación de variables.</label><br>
+      <label><input type="radio" name="q2_1" value="b"> Método de integración por partes.</label><br>
+      <label><input type="radio" name="q2_1" value="c"> Método de sustitución trigonométrica.</label><br>
+
+      <p>2. ¿Qué condición garantiza que una ecuación es exacta?</p>
+      <label><input type="radio" name="q2_2" value="a"> Que ∂M/∂y = ∂N/∂x.</label><br>
+      <label><input type="radio" name="q2_2" value="b"> Que M = N siempre.</label><br>
+      <label><input type="radio" name="q2_2" value="c"> Que la ecuación sea lineal.</label><br>
+
+      <p>3. ¿Qué cambio de variable se aplica en Bernoulli?</p>
+      <label><input type="radio" name="q2_3" value="a"> z = y^(1-n).</label><br>
+      <label><input type="radio" name="q2_3" value="b"> z = ln(y).</label><br>
+      <label><input type="radio" name="q2_3" value="c"> z = y/x.</label><br>
+
+      <button onclick="checkQuiz2()">Verificar</button>
+      <div id="result2" class="result"></div>
+    </div>
+  </div>
+
+  <!-- Unidad 1.3 -->
+  <div class="section">
+    <h2>1.3 Aplicaciones</h2>
+    <div class="quiz">
+      <h3>Quiz Unidad 1.3</h3>
+      <p>1. ¿Cómo se modela un circuito RC?</p>
+      <label><input type="radio" name="q3_1" value="a"> Con la ecuación diferencial dy/dt + (1/RC)y = (1/RC)E.</label><br>
+      <label><input type="radio" name="q3_1" value="b"> Con una ecuación algebraica cuadrática.</label><br>
+      <label><input type="radio" name="q3_1" value="c"> Con una integral triple.</label><br>
+
+      <p>2. ¿Qué tipo de ecuación describe la difusión de calor?</p>
+      <label><input type="radio" name="q3_2" value="a"> Una ecuación diferencial parcial.</label><br>
+      <label><input type="radio" name="q3_2" value="b"> Una ecuación lineal algebraica.</label><br>
+      <label><input type="radio" name="q3_2" value="c"> Una ecuación cuadrática.</label><br>
+
+      <button onclick="checkQuiz3()">Verificar</button>
+      <div id="result3" class="result"></div>
+    </div>
+  </div>
+
+  <footer>
+    <h3>Bibliografía</h3>
+    <ul>
+      <li>Boyce, W. E., & DiPrima, R. C. <i>Elementary Differential Equations and Boundary Value Problems</i>. Wiley.</li>
+      <li>Zill, D. G. <i>Ecuaciones diferenciales con aplicaciones de modelado</i>. Cengage Learning.</li>
+      <li>Kreyszig, E. <i>Advanced Engineering Mathematics</i>. Wiley.</li>
+    </ul>
+  </footer>
+
+  <script>
+    function checkQuiz1() {
+      let score = 0;
+      if(document.querySelector('input[name="q1_1"]:checked')?.value === "a") score++;
+      if(document.querySelector('input[name="q1_2"]:checked')?.value === "b") score++;
+      document.getElementById("result1").innerText = "Respuestas correctas: " + score + "/2";
+    }
+
+    function checkQuiz2() {
+      let score = 0;
+      if(document.querySelector('input[name="q2_1"]:checked')?.value === "a") score++;
+      if(document.querySelector('input[name="q2_2"]:checked')?.value === "a") score++;
+      if(document.querySelector('input[name="q2_3"]:checked')?.value === "a") score++;
+      document.getElementById("result2").innerText = "Respuestas correctas: " + score + "/3";
+    }
+
+    function checkQuiz3() {
+      let score = 0;
+      if(document.querySelector('input[name="q3_1"]:checked')?.value === "a") score++;
+      if(document.querySelector('input[name="q3_2"]:checked')?.value === "a") score++;
+      document.getElementById("result3").innerText = "Respuestas correctas: " + score + "/2";
+    }
+  </script>
+</body>
+</html>
